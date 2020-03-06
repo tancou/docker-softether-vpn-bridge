@@ -14,7 +14,7 @@ ___
 [https://www.softether.org/4-docs/1-manual/5._SoftEther_VPN_Bridge_Manual](https://www.softether.org/4-docs/1-manual/5._SoftEther_VPN_Bridge_Manual)
 
 # About this image
-Versions will follow [Softether VPN Github Repository][softether-repository] tags and [Alpine][alpine-link] update.
+Versions will follow [Softether VPN Github Repository][softether-repository] tags and [Debian][debian-link] update.
 
 This image is make'd from [the offical Softether VPN Github Repository][softether-repository].
 
@@ -79,7 +79,7 @@ services:
 [cmd-link]: https://hub.docker.com/r/amary/softether-vpn-cmd/
 [server-link]: https://hub.docker.com/r/amary/softether-vpn-server/
 
-[alpine-link]: https://hub.docker.com/_/alpine/
+[debian-link]: https://hub.docker.com/_/debian
 
 [//]: <> (Repository Link)
 
