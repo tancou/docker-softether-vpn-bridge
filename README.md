@@ -1,5 +1,4 @@
 # Lightweight [Softether VPN][softether] Bridge
-[![Build Status][project-build-image]][project-build-link] [![Docker Build][docker-build-image]][docker-build-link] [![Docker Stars][docker-stars-image]][docker-stars-link] [![Docker Pulls][docker-pulls-image]][docker-pulls-link]
 
 This docker only contains a working **SoftEther VPN Bridge** other components have been removed.
 
@@ -17,9 +16,7 @@ ___
 # About this image
 Versions will follow [Softether VPN Github Repository][softether-repository] tags and [Alpine][alpine-link] update.
 
-This image is make'd from [the offical Softether VPN Github Repository][softether-repository] with 1 patchs :
-1. [Server Patch][server-patch]:
-  * Default Server cipher changed from **"RC4-MD5"** to **"DHE-RSA-AES256-SHA"**
+This image is make'd from [the offical Softether VPN Github Repository][softether-repository].
 
 Nothing else have been edited. So when you will start it the first time you will get the default configuration which is :
 * **/!\ Administration without any password /!\**
@@ -43,6 +40,7 @@ docker run -d --cap-add NET_ADMIN -p 443:443/tcp -p 992:992/tcp -p 1194:1194/udp
 Add/delete any ```-p $PORT:$PORT/{tcp,udp} depending on you will ```
 
 # Changelog
+* v4.29-9680-rtm : Second Release
 * v4.22-9634-beta : Initial Release
 
 [//]: <> (==== Reference Part ====)
@@ -59,8 +57,6 @@ Add/delete any ```-p $PORT:$PORT/{tcp,udp} depending on you will ```
 [alpine-link]: https://hub.docker.com/_/alpine/
 
 [//]: <> (Repository Link)
-[server-patch]: https://github.com/AntoineMary/docker-softether-vpn-bridge/blob/master/assets/patchs/00_Server.sh
-[openvpn-patch]: https://github.com/AntoineMary/docker-softether-vpn-bridge/blob/master/assets/patchs/01_OpenVPN.sh
 
 [//]: <> (Badges)
 [project-build-image]: https://travis-ci.org/AntoineMary/docker-softether-vpn-bridge.svg?branch=master
