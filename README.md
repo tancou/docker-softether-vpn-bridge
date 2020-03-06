@@ -26,7 +26,7 @@ Nothing else have been edited. So when you will start it the first time you will
 You will have to configure it. To do so use :
 * [SoftEther VPN CMD][cmd-link] (any platform - Console)
 * [SoftEther VPN Server Manager][softether-download] (Windows, Mac OS X - GUI)
-* Edit by hand /usr/vpnserver/vpn_server.config then restart the server (Not Recommended)
+* Edit by hand /usr/vpnbridge/vpn_bridge.config then restart the server (Not Recommended)
 
 # How to use this image
 For a simple use without persistence :
@@ -38,6 +38,31 @@ For a simple use with persistence (will give you acces to configuration and logs
 docker run -d --cap-add NET_ADMIN -p 443:443/tcp -p 992:992/tcp -p 1194:1194/udp -p 5555:5555/tcp -v /host/path/vpnbridge:/usr/vpnbridge:Z amary/softether-vpn-bridge
 ```
 Add/delete any ```-p $PORT:$PORT/{tcp,udp} depending on you will ```
+
+# Docker-compose
+
+This is an example using `host` network for local bridge.
+
+```
+version: '3.4'
+services:
+    softethervpn:
+        container_name: softethervpn
+        privileged: true
+        network_mode: host
+        environment:
+            - TZ=Europe/Paris
+            - HOST_OS=Hostname
+        restart: always
+        cap_add:
+            - NET_ADMIN
+        volumes:
+            - './vpnbridge/security_log:/usr/vpnbridge/security_log:rw'
+            - './vpnbridge/server_log:/usr/vpnbridge/server_log:rw'
+            - './vpnbridge/packet_log:/usr/vpnbridge/packet_log:rw'
+            - './vpnbridge/vpn_bridge.config:/usr/vpnbridge/vpn_bridge.config:rw'
+        image: tancou/docker-softether-vpn-bridge
+```
 
 # Changelog
 * v4.29-9680-rtm : Second Release
