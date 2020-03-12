@@ -31,11 +31,11 @@ You will have to configure it. To do so use :
 # How to use this image
 For a simple use without persistence :
 ```
-docker run -d --cap-add NET_ADMIN -p 443:443/tcp -p 992:992/tcp -p 1194:1194/udp -p 5555:5555/tcp amary/softether-vpn-bridge
+docker run -d --cap-add NET_ADMIN -p 443:443/tcp -p 992:992/tcp -p 1194:1194/udp -p 5555:5555/tcp tancou/softether-vpn-bridge
 ```
 For a simple use with persistence (will give you acces to configuration and logs) :
 ```
-docker run -d --cap-add NET_ADMIN -p 443:443/tcp -p 992:992/tcp -p 1194:1194/udp -p 5555:5555/tcp -v /host/path/vpnbridge:/usr/vpnbridge:Z amary/softether-vpn-bridge
+docker run -d --cap-add NET_ADMIN -p 443:443/tcp -p 992:992/tcp -p 1194:1194/udp -p 5555:5555/tcp -v /host/path/vpnbridge:/usr/vpnbridge:Z tancou/softether-vpn-bridge
 ```
 Add/delete any ```-p $PORT:$PORT/{tcp,udp} depending on you will ```
 
